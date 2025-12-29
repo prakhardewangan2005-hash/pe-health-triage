@@ -12,8 +12,14 @@ REPORT="${1:-out/report.txt}"
   uptime || true
 
   echo "--- cpu/mem ---"
-  command -v free >/dev/null 2>&1 && free -h || true
-  command -v lscpu >/dev/null 2>&1 && lscpu | sed -n '1,20p' || true
+  if command -v free >/dev/null 2>&1; then
+  free -h
+fi
+
+if command -v lscpu >/dev/null 2>&1; then
+  lscpu | sed -n '1,20p'
+fi
+
 
   echo "--- disk ---"
   df -hT | sed -n '1,12p' || true
