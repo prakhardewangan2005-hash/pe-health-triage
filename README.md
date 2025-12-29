@@ -1,53 +1,24 @@
-ir-triage-toolkit
-=================
+# PE Health + Triage Toolkit (Meta-style)
 
-Create an incident response triage toolkit for use with Windows or
-Linux, without violating any license agreements or copyright
-restrictions.
+Production-minded incident triage toolkit for **fast debugging in live systems**:
+system signals + network signals + HTTP reachability + log triage → **repeatable outputs**.
 
-## Description
-A collection of scripts that can be used to create a toolkit for
-incident response and volatile data collection. This includes bash
-scripts to create a Linux toolkit, and Batch scripts to create a Windows
-toolkit.
+## What you get
+- **One-command triage**: generates `out/report.txt` + `out/summary_http.json` (+ optional log summaries)
+- **Network snapshot**: routes, interfaces, DNS check, socket summary (`ss`)
+- **HTTP probe**: default `timeout=2s`, `retries=1` (automation-friendly exit codes)
+- **Log triage** (optional): scans last `2000` lines → top `10` offenders + CSV/JSON outputs
+- **Runbook docs** for repeatable incident response
 
-## Usage
-1. Dowload and extract the [zip](https://github.com/george2/ir-triage-toolkit/archive/master.zip).
-2. Open a shell, and change directory to wherever the zip was extracted.
-3. Run the script.
+## Quick start (Linux / WSL)
+```bash
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+chmod +x scripts/*.sh
 
-Windows:
+# no logs
+URL="https://example.com" ./scripts/triage.sh
 
-    create-toolkit E:\Store\it\here
+# with logs
+URL="https://example.com" LOGFILE="/var/log/nginx/access.log" ./scripts/triage.sh
 
-Linux:
-
-    ./create-toolkit /store/it/here
-
-Note: Steps 1-3 should be run on a non-involved machine, preferably
-before an incident even occurs. The toolkit it creates should be stored
-on a USB drive or similar location, where it can be used in case an
-incident does occur.
-
-Once the toolkit has been created, you can use it by opening a shell in
-the directory where the toolkit is stored, and starting the volatile
-data collection script:
-
-Windows:
-
-    run E:\Store\my\volatile\data\here
-
-Linux:
-
-    ./run /store/my/volatile/data/here
-
-Be sure the directory in which you choose to save the volatile data has
-plenty of space (several GB, at least), as the script will dump the
-contents of the system's memory, and store several other files of
-varying sizes. Both Windows and Linux scripts accomplish the same basic
-tasks (see tasks.txt), and both follow the order of volatility (OOV) for
-data collection as much as possible. They also create detailed,
-timestamped logs of the commands executed, and create sha256 checksums
-of the files saved to the storage directory. Be prepared for the scripts
-to run for a while, as it may take some time to image and compute a
-checksum of the system's memory.
