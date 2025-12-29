@@ -1,5 +1,6 @@
 # PE Health + Triage Toolkit (Meta-style)
-![ci](../../actions/workflows/ci.yml/badge.svg)
+[![ci](https://github.com/prakhardewangan2005-hash/pe-health-triage/actions/workflows/ci.yml/badge.svg)](https://github.com/prakhardewangan2005-hash/pe-health-triage/actions/workflows/ci.yml)
+
 
 
 Production-minded incident triage toolkit for **fast debugging in live systems**:
@@ -23,5 +24,6 @@ URL="https://example.com" ./scripts/triage.sh
 
 # with logs
 URL="https://example.com" LOGFILE="/var/log/nginx/access.log" ./scripts/triage.sh
+
 
 
