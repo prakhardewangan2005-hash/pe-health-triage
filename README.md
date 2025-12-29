@@ -1,4 +1,6 @@
 # PE Health + Triage Toolkit (Meta-style)
+![ci](../../actions/workflows/ci.yml/badge.svg)
+
 
 Production-minded incident triage toolkit for **fast debugging in live systems**:
 system signals + network signals + HTTP reachability + log triage → **repeatable outputs**.
@@ -21,4 +23,5 @@ URL="https://example.com" ./scripts/triage.sh
 
 # with logs
 URL="https://example.com" LOGFILE="/var/log/nginx/access.log" ./scripts/triage.sh
+
 
