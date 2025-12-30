@@ -32,6 +32,26 @@ URL="https://example.com" ./scripts/triage.sh
 # with logs
 URL="https://example.com" LOGFILE="/var/log/nginx/access.log" ./scripts/triage.sh
 
+## Runbook index (quick links)
+
+- [5xx spike / errors after deploy](./docs/runbooks/5xx-spike.md)
+- [Packet loss / drops](./docs/runbooks/packet-loss.md)
+- [DNS latency / failures](./docs/runbooks/dns-latency.md)
+- [High CPU / load spike](./docs/runbooks/high-cpu.md)
+
+---
+
+## Network track (NPE)
+
+### Quick start
+```bash
+# Linux/WSL only
+chmod +x scripts/*.sh
+
+TARGET="1.1.1.1" ./scripts/net_health.sh
+
+
+
 
 
 
