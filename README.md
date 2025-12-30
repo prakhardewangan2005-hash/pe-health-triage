@@ -6,6 +6,13 @@
 Production-minded incident triage toolkit for **fast debugging in live systems**:
 system signals + network signals + HTTP reachability + log triage → **repeatable outputs**.
 
+## Runbooks (Quick Triage Guides)
+- [5xx spike / errors after deploy](docs/runbooks/5xx-spike.md)
+- [Packet loss / drops](docs/runbooks/packet-loss.md)
+- [High latency](docs/runbooks/high-latency.md)
+- [DNS issues](docs/runbooks/dns.md)
+
+
 ## What you get
 - **One-command triage**: generates `out/report.txt` + `out/summary_http.json` (+ optional log summaries)
 - **Network snapshot**: routes, interfaces, DNS check, socket summary (`ss`)
@@ -24,6 +31,7 @@ URL="https://example.com" ./scripts/triage.sh
 
 # with logs
 URL="https://example.com" LOGFILE="/var/log/nginx/access.log" ./scripts/triage.sh
+
 
 
 
